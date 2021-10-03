@@ -1,0 +1,6 @@
+{
+  "name": "hardhat-klaytn-patch",
+  "version": "0.0.1",
+  "main": "patch.js",
+  "license": "MIT"
+}
