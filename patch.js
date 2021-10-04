@@ -4,10 +4,11 @@ GanacheGasMultiplierProvider.prototype._isGanache = async function() {
     try {
         return await originalIsGanache.apply(this)
     } catch (error) {
-        if (error.message == 'The method web3_clientVersion does not exist/is not available') {
+        if (error.message.includes('web3_clientVersion does not exist/is not available')
+            || error.message.includes("Unsupported method - web3_clientVersion")) {
             GanacheGasMultiplierProvider.prototype._cachedIsGanache = false
             return false
-        } 
+        }
         throw error
     }
 }
